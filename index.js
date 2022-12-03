@@ -36,7 +36,7 @@ function newEmployee() {
             name: 'id',
             message: 'What is the id of this employee?',
         }
-    ]).then(({ position, email, id }) => {
+    ]).then(({ position, email, id, name }) => {
         switch (position) {
             case 'Manager':
                 inquirer.prompt([
@@ -52,6 +52,8 @@ function newEmployee() {
                     email,
                     officeNumber
                    )) 
+
+                   another()
                 })
             
             break;
@@ -65,12 +67,30 @@ function newEmployee() {
     
         }
     
-        inquirer.prompt([
-            {
-                type: 'confirm',
-                name: 'more',
-                message: 'Another employee?'
-            }
-        ])
+      
     })
 }
+
+function another() {
+   return inquirer.prompt([
+        {
+            type: 'confirm',
+            name: 'more',
+            message: 'Another employee?'
+        }
+    ]).then(({ more }) => {
+        if (more) newEmployee()
+        else renderHTMLFile()
+    })
+}
+
+function renderHTMLFile() {
+    fs.writeFileSync('./index.html', /*HTML*/ `
+        <ul>
+        ${employees.map(employee => /*HTML*/ `
+           <li>${employee.getName()}</li>
+        `)}
+        </ul>
+    `)
+}
+newEmployee()
