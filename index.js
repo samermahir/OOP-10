@@ -123,8 +123,8 @@ function another() {
 const managerCard = function(manager) {
     return `
     <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-header">${manager.name}</h5>
+            <div class="card-header">
+            <h5>${manager.name}</h5>
             <div class="card-subtitle mb-2 text-muted">${manager.role}</div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${manager.id}</li>
@@ -139,9 +139,9 @@ const managerCard = function(manager) {
 function engineerCard(engineer) {
     return `
     <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">${engineer.name}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">${engineer.role}</h6>
+            <div class="card-header">
+            <h5>${engineer.name}</h5>
+            <h6 class="card-subtitle mb-2 justify-content-center text-muted">${engineer.role}</h6>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${engineer.id}</li>
                 <li class="list-group-item">Email: ${engineer.email}</li>
@@ -155,8 +155,8 @@ function engineerCard(engineer) {
 function internCard(intern) {
     return `
     <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">${intern.name}</h5>
+            <div class="card-header">
+            <h5>${intern.name}</h5>
             <h6 class="card-subtitle mb-2 text-muted">${intern.role}</h6>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${intern.id}</li>
