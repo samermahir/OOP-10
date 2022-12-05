@@ -170,7 +170,7 @@ function renderHTMLFile() {
    <title>Team</title>
 </head>
 <body>
-   <div class="container">
+   <div class="container-fluid">
       <div class="row">
          <div class="col-md-12">
             <h1>Team</h1>
@@ -194,12 +194,6 @@ function renderHTMLFile() {
   `);
 
 }
-
-// employeeCard()
-// managerCard()
-// engineerCard()
-// internCard()
-// renderHTMLFile()
 
 
 newEmployee()
