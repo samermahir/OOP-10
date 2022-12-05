@@ -2,7 +2,6 @@
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-const Employee = require('./lib/Employee');
 const inquirer = require('inquirer');
 const fs = require('fs');
 
@@ -119,11 +118,9 @@ function another() {
     })
 }
 
-function renderHTMLFile() {
-    fs.writeFileSync('./index.html');
-}
+// const employeeCard = function(employee) {
 
-function managerCard(manager) {
+const managerCard = function(manager) {
     return `
     <div class="card">
         <div class="card-body">
@@ -135,7 +132,7 @@ function managerCard(manager) {
             `;
 }
 
-const engineerCard = function (engineer) {
+function engineerCard(engineer) {
     return `
     <div class="card">
         <div class="card-body">
@@ -159,9 +156,50 @@ function internCard(intern) {
             `;
 }
 
-newEmployee()
-managerCard()
-engineerCard()
-internCard()
 
-renderHTMLFile()
+function renderHTMLFile() {
+    fs.writeFileSync('./index.html',`
+    
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <title>Team</title>
+</head>
+<body>
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <h1>Team</h1>
+            
+            ${employees.map((employee) => {
+                switch (employee.getRole()) {
+                  case "Manager":
+                    return managerCard(employee);
+                  case "Engineer":
+                    return engineerCard(employee);
+                  case "Intern":
+                    return internCard(employee);
+                }
+              }
+              ).join("")}
+            </div>
+          </div>
+        </div>
+      </body>
+    </html>
+  `);
+
+}
+
+// employeeCard()
+// managerCard()
+// engineerCard()
+// internCard()
+// renderHTMLFile()
+
+
+newEmployee()
