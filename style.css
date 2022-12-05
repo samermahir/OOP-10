@@ -1,0 +1,31 @@
+h1 {
+    text-align: center;
+    justify-content: center;
+}
+
+.card-body {
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 1rem;
+}
+
+.card-header {
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+.card-title{
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: black;
+    padding: 1rem;
+    border-radius: 0px;
+    border: 1px solid black;    
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
+
