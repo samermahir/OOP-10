@@ -182,10 +182,11 @@ function renderHTMLFile() {
    <title>Team</title>
 </head>
 <body>
-   <div class="container-fluid">
-      <div class="row">
-         <div class="col-md-12">
+        <div class="jumbotron text-center">
             <h1>Team</h1>
+        </div>
+        <div class="container justify-content-center">
+        <div class="d-flex flex-wrap justify-content-center"></div>
             
             ${employees.map((employee) => {
                 switch (employee.getRole()) {
