@@ -85,12 +85,6 @@ function another() {
 }
 
 function renderHTMLFile() {
-    fs.writeFileSync('./index.html', /*HTML*/ `
-        <ul>
-        ${employees.map(employee => /*HTML*/ `
-           <li>${employee.getName()}</li>
-        `)}
-        </ul>
-    `)
+    fs.writeFileSync('./index.html');
 }
 newEmployee()
