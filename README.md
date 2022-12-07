@@ -27,5 +27,14 @@ node index.js
 
 ## Demo
 
+Video demonstrating functionality and showing all tests have passed.
+
+
+
+
+https://user-images.githubusercontent.com/113157987/206245567-999559e3-88bb-42ca-8968-ac5916c1ad40.mp4
+
+
+
 
 
