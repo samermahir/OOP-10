@@ -63,7 +63,7 @@ function newEmployee() {
                 inquirer.prompt([
                     {
                         type: 'input',
-                        name: 'officeNumber',
+                        name: 'school',
                         message: 'What school did the intern attend?',
                     }
                 ]).then(({ school }) => {
@@ -129,7 +129,7 @@ const managerCard = function(manager) {
             <div class="card-subtitle mb-2 justify-content-center text-muted">${manager.role}</div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${manager.id}</li>
-                <li class="list-group-item">Email: ${manager.email}</li>
+                <li class="list-group-item">Email:<a href="mailto:${manager.email}">${manager.email}</a></li>
                  <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
             </ul>
             </div>
@@ -146,8 +146,8 @@ function engineerCard(engineer) {
             <div class="card-subtitle mb-2 justify-content-center text-muted">${engineer.role}</div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${engineer.id}</li>
-                <li class="list-group-item">Email: ${engineer.email}</li>
-                 <li class="list-group-item">Github: ${engineer.github}</li>
+                <li class="list-group-item">Email:<a href="mailto:${engineer.email}">${engineer.email}</a></li>
+                 <li class="list-group-item">Github:<a href="https://www.github.com/${engineer.github}" target="_blank">${engineer.github}</a></li>
             </ul>
             </div>
             </div>
@@ -163,7 +163,7 @@ function internCard(intern) {
             <div class="card-subtitle mb-2 justify-content-center text-muted">${intern.role}</div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${intern.id}</li>
-                <li class="list-group-item">Email: ${intern.email}</li>
+                <li class="list-group-item">Email:<a href="mailto:${intern.email}">${intern.email}</a></li>
                  <li class="list-group-item">School: ${intern.school}</li>
             </ul>
             </div>
@@ -182,11 +182,12 @@ function renderHTMLFile() {
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <link rel="stylesheet" href="style.css">
    <title>Team</title>
 </head>
 <body>
-        <div class="jumbotron text-center" style="bacground-color: darkcyan">
-            <h1>Team</h1>
+        <div class="jumbotron text-center" style="background-color: darkcyan">
+            <h1>Team Generator</h1>
         </div>
         <div class="container justify-content-center">
         <div class="d-flex flex-wrap justify-content-center">
