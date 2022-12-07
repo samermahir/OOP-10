@@ -36,8 +36,9 @@ function newEmployee() {
             name: 'id',
             message: 'What is the id of this employee?',
         }
-    ]).then(({ position, email, id, name }) => {
+    ]).then(({ position, email, id, name, }) => {
         switch (position) {
+            //Manager inputs
             case 'Manager':
                 inquirer.prompt([
                     {
@@ -56,6 +57,7 @@ function newEmployee() {
                    another()
                 })
             
+            //Intern inputs
             break;
             case 'Intern':
                 inquirer.prompt([
@@ -75,7 +77,7 @@ function newEmployee() {
                     another()
                 })
                 
-    
+            //Engineer inputs   
             break;
             case 'Engineer':
                 inquirer.prompt([
@@ -104,7 +106,7 @@ function newEmployee() {
       
     })
 }
-
+//Input asking for another employee
 function another() {
    return inquirer.prompt([
         {
@@ -118,14 +120,13 @@ function another() {
     })
 }
 
-// const employeeCard = function(employee) {
-
+//Manager HTML card
 const managerCard = function(manager) {
     return `
-    <div class="card" style="width: 18rem;">
+    <div class="card bg-light mb-3" style="width: 18rem;">
             <div class="card-header">
             <h5>${manager.name}</h5>
-            <div class="card-subtitle mb-2 text-muted">${manager.role}</div>
+            <div class="card-subtitle mb-2 justify-content-center text-muted">${manager.role}</div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${manager.id}</li>
                 <li class="list-group-item">Email: ${manager.email}</li>
@@ -136,12 +137,13 @@ const managerCard = function(manager) {
             `;
 }
 
+//Engineer HTML card
 function engineerCard(engineer) {
     return `
-    <div class="card" style="width: 18rem;">
+    <div class="card bg-light mb-3" style="width: 18rem;">
             <div class="card-header">
             <h5>${engineer.name}</h5>
-            <h6 class="card-subtitle mb-2 justify-content-center text-muted">${engineer.role}</h6>
+            <div class="card-subtitle mb-2 justify-content-center text-muted">${engineer.role}</div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${engineer.id}</li>
                 <li class="list-group-item">Email: ${engineer.email}</li>
@@ -152,12 +154,13 @@ function engineerCard(engineer) {
             `;
 }
 
+//Intern HTML card
 function internCard(intern) {
     return `
-    <div class="card" style="width: 18rem;">
+    <div class="card bg-light mb-3" style="width: 18rem;">
             <div class="card-header">
             <h5>${intern.name}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">${intern.role}</h6>
+            <div class="card-subtitle mb-2 justify-content-center text-muted">${intern.role}</div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${intern.id}</li>
                 <li class="list-group-item">Email: ${intern.email}</li>
@@ -168,7 +171,7 @@ function internCard(intern) {
             `;
 }
 
-
+//Render cards into HTML
 function renderHTMLFile() {
     fs.writeFileSync('./index.html',`
     
@@ -182,11 +185,11 @@ function renderHTMLFile() {
    <title>Team</title>
 </head>
 <body>
-        <div class="jumbotron text-center">
+        <div class="jumbotron text-center" style="bacground-color: darkcyan">
             <h1>Team</h1>
         </div>
         <div class="container justify-content-center">
-        <div class="d-flex flex-wrap justify-content-center"></div>
+        <div class="d-flex flex-wrap justify-content-center">
             
             ${employees.map((employee) => {
                 switch (employee.getRole()) {
@@ -199,9 +202,7 @@ function renderHTMLFile() {
                 }
               }
               ).join("")}
-            </div>
-          </div>
-        </div>
+            
       </body>
     </html>
   `);

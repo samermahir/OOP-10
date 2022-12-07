@@ -1,14 +1,3 @@
-body {
-    color: blue;
-}
-
-div.card-header {
-    color: red;
-}
-
-.row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    text-align:center
+div .card-header {
+    border-radius: 50px;
 }
