@@ -123,8 +123,9 @@ function another() {
 //Manager HTML card
 const managerCard = function(manager) {
     return `
-    <div class="card bg-light mb-3" style="width: 18rem;">
-            <div class="card-header">
+    <div class="card bg-light mb-3" style="width: 18rem; ">
+            <div class="card-header" style="background-color: darkcyan">
+            <div class="card-body" style="background-color: white">
             <h5>${manager.name}</h5>
             <div class="card-subtitle mb-2 justify-content-center text-muted">${manager.role}</div>
             <ul class="list-group list-group-flush">
@@ -141,7 +142,8 @@ const managerCard = function(manager) {
 function engineerCard(engineer) {
     return `
     <div class="card bg-light mb-3" style="width: 18rem;">
-            <div class="card-header">
+            <div class="card-header" style="background-color: darkcyan">
+            <div class="card-body" style="background-color: white">
             <h5>${engineer.name}</h5>
             <div class="card-subtitle mb-2 justify-content-center text-muted">${engineer.role}</div>
             <ul class="list-group list-group-flush">
@@ -158,7 +160,8 @@ function engineerCard(engineer) {
 function internCard(intern) {
     return `
     <div class="card bg-light mb-3" style="width: 18rem;">
-            <div class="card-header">
+            <div class="card-header" style="background-color: darkcyan">
+            <div class="card-body" style="background-color: white">
             <h5>${intern.name}</h5>
             <div class="card-subtitle mb-2 justify-content-center text-muted">${intern.role}</div>
             <ul class="list-group list-group-flush">
@@ -166,6 +169,7 @@ function internCard(intern) {
                 <li class="list-group-item">Email:<a href="mailto:${intern.email}">${intern.email}</a></li>
                  <li class="list-group-item">School: ${intern.school}</li>
             </ul>
+            </div>
             </div>
             </div>
             `;
